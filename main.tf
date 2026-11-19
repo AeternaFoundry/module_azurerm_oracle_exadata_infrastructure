@@ -8,11 +8,11 @@ resource "azurerm_oracle_exadata_infrastructure" "oracle_exadata_infrastructures
   resource_group_name  = each.value.resource_group_name
   shape                = each.value.shape
   storage_count        = each.value.storage_count
-  zones                = each.value.zones
   customer_contacts    = each.value.customer_contacts
   database_server_type = each.value.database_server_type
   storage_server_type  = each.value.storage_server_type
   tags                 = each.value.tags
+  zones                = each.value.zones
 
   dynamic "maintenance_window" {
     for_each = each.value.maintenance_window != null ? each.value.maintenance_window : []
